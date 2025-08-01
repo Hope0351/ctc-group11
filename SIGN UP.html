@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blood Donation Sign-Up</title>
+  <style>
+    body {
+      background: #ffeaea;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .signup-box {
+      background: #fff5f5;
+      padding: 35px 30px;
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+      border: 2px solid #ff4d4d;
+      border-radius: 20px;
+      text-align: center;
+      width: 320px;
+    }
+    h2 {
+      color: #cc0000;
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 12px;
+      margin: 12px 0;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    input {
+      border: 1px solid #ffcccc;
+      background-color: #fff0f0;
+    }
+    button {
+      background: #cc0000;
+      color: white;
+      border: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #990000;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Donor Sign-Up</h2>
+    <input type="text" id="name" placeholder="Full Name" />
+    <input type="text" id="id" placeholder="National ID / Code" />
+    <button onclick="signup()">Sign Up</button>
+  </div>
+
+  <script>
+    function signup() {
+      const name = document.getElementById('name').value.trim();
+      const id = document.getElementById('id').value.trim();
+      if (!name || !id) return alert("Please fill all fields!");
+
+      let donors = JSON.parse(localStorage.getItem("donors")) || [];
+
+      // Prevent duplicate ID
+      if (donors.some(donor => donor.id === id)) {
+        return alert("This ID has already signed up!");
+      }
+
+      donors.push({ name, id });
+      localStorage.setItem("donors", JSON.stringify(donors));
+
+      alert("Signed up successfully!");
+      document.getElementById('name').value = "";
+      document.getElementById('id').value = "";
+    }
+  </script>
+</body>
+</html>
