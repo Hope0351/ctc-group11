@@ -4,55 +4,44 @@
   <meta charset="UTF-8" />
   <title>Blood Donation Sign-Up</title>
   <style>
-    /* this is styling */
     body {
-      background: #ffeaea;
+      background: mistyrose; 
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
     .signup-box {
-      background: #fff5f5;
-      padding: 35px 30px;
-      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
-      border: 2px solid #ff4d4d;
-      border-radius: 20px;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2); 
+      border-radius: 15px;
       text-align: center;
-      width: 320px;
-    }
-    h2 {
-      color: #cc0000;
-      margin-bottom: 20px;
+      width: 300px;
+      border: 2px solid red;
     }
     input, button {
-      padding: 12px;
-      margin: 12px 0;
+      padding: 10px;
+      margin: 10px 0;
       width: 100%;
+      border: 1px solid darkred;
       border-radius: 10px;
-      font-size: 15px;
-    }
-    input {
-      border: 1px solid #ffcccc;
-      background-color: #fff0f0;
     }
     button {
-      background: #cc0000;
+      background: red;
       color: white;
-      border: none;
+      cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s ease;
     }
     button:hover {
-      background: #990000;
+      background: darkred;
     }
   </style>
 </head>
 <body>
   <div class="signup-box">
-    <h2>Donor Sign-Up</h2>
+    <h2 style="color: darkred;">Donor Sign-Up</h2>
     <input type="text" id="name" placeholder="Full Name" />
     <input type="text" id="id" placeholder="National ID / Code" />
     <button onclick="signup()">Sign Up</button>
@@ -60,20 +49,12 @@
 
   <script>
     function signup() {
-      const name = document.getElementById('name').value.trim();
-      const id = document.getElementById('id').value.trim();
-      if (!name || !id) return alert("Please fill all fields!");
-
+      const name = document.getElementById('name').value;
+      const id = document.getElementById('id').value;
+      if (!name || !id) return alert("Fill all fields!");
       let donors = JSON.parse(localStorage.getItem("donors")) || [];
-
-      // Prevent duplicate ID
-      if (donors.some(donor => donor.id === id)) {
-        return alert("This ID has already signed up!");
-      }
-
       donors.push({ name, id });
       localStorage.setItem("donors", JSON.stringify(donors));
-
       alert("Signed up successfully!");
       document.getElementById('name').value = "";
       document.getElementById('id').value = "";
