@@ -1,1 +1,256 @@
+1. **ls**  
+What it does: Lists files and directories.  
+How it works: Reads directory contents and outputs filenames.  
+
+Example:  
+``` ls -l ```
+
+2. **mkdir**
+What it does: Creates a new directory.
+How it works: Makes a new folder in the filesystem at the specified path.
+
+Example:
+``` mkdir projects ```
+
+3. ***cat***
+What it does: Displays the contents of a file.
+How it works: Reads the file and outputs its contents to the terminal.
+
+Example:
+``` cat notes.txt ```
+
+4. ***echo***
+What it does: Prints text or variables to the terminal.
+How it works: Sends the provided string or variable content to standard output.
+
+Example:
+``` echo "Hello World" ```
+
+5. ***awk***
+What it does: Processes and extracts data from text, especially column-based data.
+How it works: Reads input line by line, splits into fields, applies patterns or actions.
+
+Example:
+``` awk '{print $1}' data.txt ```
+
+6. ***sed***
+What it does: Stream editor for filtering and transforming text.
+How it works: Applies editing commands like search and replace on input text streams.
+
+Example:
+``` sed 's/apple/orange/g' fruits.txt ```
+
+7. ***busybox***
+What it does: Combines many common Unix utilities into a single executable.
+How it works: Acts as a lightweight version of standard commands for embedded systems.
+
+Example:
+``` busybox ls ```
+
+8. ***top***
+What it does: Displays running processes and system resource usage in real-time.
+How it works: Continuously updates and shows CPU, memory, and process information.
+
+Example:
+``` top ```
+
+9. ***ps***
+What it does: Lists currently running processes.
+How it works: Reads the process table and outputs details like PID, user, CPU usage.
+
+Example:
+``` ps aux ```
+
+10. ***ln***
+What it does: Creates hard or symbolic links to files.
+How it works: Links one filename to another without duplicating the data.
+
+Example:
+``` ln -s file.txt shortcut.txt ```
+
+11. ***vi***
+What it does: Opens the vi text editor for editing files.
+How it works: Provides a terminal-based interface for text editing with modes.
+
+Example:
+``` vi file.txt ```
+
+12. ***nano***
+What it does: Opens the nano text editor, a simple terminal editor.
+How it works: Allows easy editing of text files with intuitive keyboard shortcuts.
+
+Example:
+``` nano file.txt ```
+
+13. ***strings***
+What it does: Extracts readable text from binary files.
+How it works: Scans binary files and prints sequences of printable characters.
+
+Example:
+``` strings program.exe ```
+
+14. ***cal***
+What it does: Displays a calendar in the terminal.
+How it works: Outputs the calendar for the current month or specified year/month.
+
+Example:
+``` cal 2025 ```
+
+15. ***cut***
+What it does: Extracts specific columns or fields from text input.
+How it works: Splits lines by delimiters and outputs selected fields or character ranges.
+
+Example:
+``` cut -d',' -f1 data.csv ```
+
+16. ***dc
+What it does: A reverse-polish notation calculator for arbitrary precision math.
+How it works: Reads and executes commands for calculations interactively or from a file.
+
+Example:
+``` dc
+5 3 + p ```
+
+17. ***dd***
+What it does: Copies and converts raw data at block level.
+How it works: Reads input from a source, writes to a destination with optional conversion.
+
+Example:
+``` dd if=/dev/sda of=backup.img bs=4M ```
+
+18. ***diff***
+What it does: Compares two files line-by-line.
+How it works: Outputs differences between files to help identify changes.
+
+Example:
+``` diff file1.txt file2.txt ```
+
+19. *** find ***
+What it does: Searches for files and directories matching given criteria.
+How it works: Recursively traverses directories applying filters like name, type, size.
+
+Example:
+``` find . -name "*.txt" ```
+
+20. less
+What it does: Views text files one page at a time with scrolling.
+How it works: Opens file or input stream and allows forward and backward navigation.
+
+Example:
+``` less bigfile.txt ```
+
+21. ***rm***
+What it does: Removes (deletes) files or directories.
+How it works: Deletes specified files/directories permanently (with options for recursive).
+
+Example:
+``` rm file.txt ```
+
+22. ***dir***
+What it does: Lists directory contents (similar to ls).
+How it works: Reads and prints filenames inside directories.
+
+Example:
+``` dir ```
+
+23. ***info***
+What it does: Displays GNU info manuals (help documentation).
+How it works: Opens interactive navigation through detailed command documentation.
+
+Example:
+``` info ls ```
+
+24. ***wget***
+What it does: Downloads files from the web via HTTP, HTTPS, or FTP.
+How it works: Retrieves remote content and saves it locally.
+
+Example:
+``` wget https://example.com/file.zip ```
+
+25. ***curl***
+What it does: Transfers data to or from a server with URL syntax.
+How it works: Supports many protocols to download or send data interactively or in scripts.
+
+Example:
+``` curl https://example.com ```
+
+26. ***ping
+What it does: Tests network connectivity by sending ICMP echo requests.
+How it works: Sends packets to a target host and measures response time and packet loss.
+
+Example:
+``` ping google.com ```
+
+27. ***dig***
+What it does: Performs DNS lookups to query domain information.
+How it works: Queries DNS servers and returns information like IP addresses or mail servers.
+
+Example:
+``` dig example.com ```
+
+28. ***ip***
+What it does: Displays or configures network interfaces and routing.
+How it works: Shows IP addresses, manages interfaces, routing, and tunnels.
+
+Example:
+``` ip addr ```
+
+29. ***if***
+What it does: Conditional statement used in shell scripting (not a standalone command).
+How it works: Tests conditions and executes code blocks accordingly.
+
+Example: 
+``` if [ -f file.txt ]; then
+  echo "File exists"
+fi ```
+
+30. ***while***
+What it does: Loop construct used in shell scripting to repeat commands.
+How it works: Executes commands repeatedly while a condition is true.
+
+Example:
+``` while true; do echo "loop"; sleep 1; done ```
+
+31. ***for***
+What it does: Loop construct used in shell scripting to iterate over items.
+How it works: Executes commands for each item in a list.
+
+Example:
+``` for i in 1 2 3; do echo $i; done ```
+
+32. ***and / or***
+What it does: Logical operators used in shell scripting (&& for AND, || for OR).
+How it works: Chains commands where && executes the next command only if the previous succeeds, and || if it fails.
+
+Example:
+```mkdir test && cd test
+ping badsite.com || echo "Ping failed" ```
+
+33. ***tr***
+What it does: Translates or deletes characters from input text.
+How it works: Replaces specified characters or removes them.
+
+Example:
+``` echo "hello" | tr 'a-z' 'A-Z' ```
+
+34. ***kill***
+What it does: Sends signals to processes, commonly to terminate them.
+How it works: Sends specified signal (default TERM) to a process by PID.
+
+Example:
+``` kill 1234 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
