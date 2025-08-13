@@ -1,0 +1,100 @@
+HTTP Versions – How They Work & Examples
+📝 HTTP/0.9
+Released: 1991 (first version of HTTP)
+How it works:
+
+Only supported GET requests.
+
+No headers — the server directly sent back HTML content.
+
+Very lightweight, but limited to plain text pages.
+
+Example:
+
+bash
+Copy
+Edit
+GET /page.html
+→ Returns only the HTML content.
+
+🌐 HTTP/1.0
+Released: 1996
+How it works:
+
+Added request/response headers for metadata.
+
+Supported more methods like POST and HEAD.
+
+Each request opened a new TCP connection — slow for multiple resources.
+
+Example:
+
+vbnet
+Copy
+Edit
+GET /index.html HTTP/1.0
+Host: example.com
+→ Server sends headers (e.g., Content-Type) + file content.
+
+🌐 HTTP/1.1
+Released: 1997 (improved HTTP/1.0)
+Key characteristics:
+
+Persistent connections: Keep TCP connection open for multiple requests.
+
+Pipelining: Allowed sending multiple requests before responses arrived (rarely used due to HOL blocking).
+
+Chunked transfer: Send data in pieces without knowing total size in advance.
+
+How it works:
+
+Requests are still processed sequentially within a connection.
+
+If one request is slow, others wait (head-of-line blocking).
+
+Example:
+Browser loads a page by sending requests for HTML, CSS, JS, and images over a few TCP connections, one at a time per connection.
+
+⚡ HTTP/2
+Released: 2015
+Key improvements:
+
+Binary protocol: More compact and efficient than HTTP/1.1’s text format.
+
+Multiplexing: Multiple requests/responses in parallel over a single TCP connection.
+
+Header compression (HPACK): Reduces repeated metadata size.
+
+Stream prioritization: Browser can request important resources first.
+
+How it works:
+
+One TCP connection handles all requests at the same time.
+
+A slow resource doesn’t block others.
+
+Example:
+Browser requests HTML, CSS, JS, and images at once → server sends them simultaneously in interleaved streams.
+
+🚀 HTTP/3
+Released: 2022
+Key improvements:
+
+Uses QUIC over UDP instead of TCP.
+
+Eliminates TCP head-of-line blocking by making each stream independent.
+
+Built-in TLS 1.3 encryption.
+
+Faster connection setup and better performance on unstable networks.
+
+How it works:
+
+Data streams run independently — if one packet is lost, others continue without delay.
+
+Ideal for mobile and real-time applications.
+
+Example:
+On weak Wi-Fi, an image packet may be lost but CSS and JS still load instantly.
+
+
